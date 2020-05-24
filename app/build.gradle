@@ -1,6 +1,11 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+def DEFAULT_ROOM = "DEFAULT_ROOM"
+def STRING = "String"
+def PROJECT_ROOM_DEBUG = ""
 
 android {
     compileSdkVersion 29
@@ -12,17 +17,71 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
+        flavorDimensions "default"
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        debug {
+            buildConfigField(STRING, DEFAULT_ROOM,PROJECT_ROOM_DEBUG)
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
+    productFlavors {
+        dev {
+            def API_BASE_URL = '"https://"'
+            buildConfigField "String", "API_BASE_URL", API_BASE_URL
+            buildConfigField 'String', 'FIREBASE_DATA_STORE', '"gs://"'
+        }
+
+        staging {
+            def API_BASE_URL = '"https://"'
+            buildConfigField "String", "API_BASE_URL", API_BASE_URL
+            buildConfigField 'String', 'FIREBASE_DATA_STORE', '"gs://"'
+        }
+
+        production {
+            def API_BASE_URL = '"https://"'
+            buildConfigField "String", "API_BASE_URL", API_BASE_URL
+            buildConfigField 'String', 'FIREBASE_DATA_STORE', '"gs://"'
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+repositories {
+    mavenCentral()
 }
 
 dependencies {
