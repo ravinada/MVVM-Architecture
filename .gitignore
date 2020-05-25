@@ -14,7 +14,7 @@
 .mtj.tmp/
 
 # Package Files #
-*.bat
+
 *.jar
 *.war
 *.nar
@@ -53,3 +53,7 @@ app/production/*
 app/staging/*
 app/dev/*
 **/*.iml*
+
+#removing .bat files
+gradlew.bat
+
