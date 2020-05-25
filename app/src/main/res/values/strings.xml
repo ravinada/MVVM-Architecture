@@ -1,3 +1,9 @@
 <resources>
+
     <string name="app_name">MVVM-Architecture</string>
+    <string name="retry">Retry</string>
+    <string name="default_error_network">We are experiencing problem to connect to our server, please try again later&#8230;</string>
+    <string name="no_connection">Internet connection not available</string>
+    <string name="no_internet_connection">Something went wrong! \n Check internet connection</string>
+
 </resources>

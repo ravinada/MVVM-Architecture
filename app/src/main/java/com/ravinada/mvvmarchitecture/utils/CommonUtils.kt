@@ -2,10 +2,14 @@ package com.ravinada.mvvmarchitecture.utils
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.net.ConnectivityManager
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import com.ravinada.mvvmarchitecture.base.BaseFragment
 import java.lang.ref.WeakReference
 import java.text.SimpleDateFormat
 import java.util.*
@@ -38,5 +42,31 @@ object CommonUtils {
             datePickerDialog.datePicker.maxDate = calendar.timeInMillis
             datePickerDialog.show()
         }
+    }
+
+    // method for network connectivity..
+    fun isConnectionAvailable(context: Context?): Boolean {
+        if (context != null) {
+            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetwork = cm.activeNetworkInfo
+
+            if (activeNetwork != null && activeNetwork.isConnected) {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    fun getTopVisibleFragment(manager: FragmentManager, containerId: Int): Fragment? {
+        return manager.findFragmentById(containerId)
+    }
+
+    private fun toRedirectBottomNav(fragment: Fragment, connected: Boolean) {
+        (fragment as BaseFragment).onNetworkConnectionChanged(connected)
+    }
+
+    fun getListFragment(fragmentManager: FragmentManager): List<Fragment> {
+        return fragmentManager.fragments
     }
 }
