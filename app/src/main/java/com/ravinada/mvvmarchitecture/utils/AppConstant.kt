@@ -4,7 +4,7 @@ class AppConstant {
     companion object {
         //define all projects constant here
         const val USER_TYPE = "user_type"
-
+        const val AUTHORIZATION = "Authorization"
     }
 
     //define fragment/feature/API params wise constant like this
