@@ -54,6 +54,4 @@ app/staging/*
 app/dev/*
 **/*.iml*
 
-#removing .bat files
-gradlew.bat
 

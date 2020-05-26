@@ -1,4 +1,4 @@
-package com.ravinada.mvvmarchitecture.interface
+package com.ravinada.mvvmarchitecture.interfaces
 
 import android.view.View
 
