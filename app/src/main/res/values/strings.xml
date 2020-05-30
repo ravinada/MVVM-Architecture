@@ -5,6 +5,17 @@
     <string name="default_error_network">We are experiencing problem to connect to our server, please try again later&#8230;</string>
     <string name="no_connection">Internet connection not available</string>
     <string name="no_internet_connection">Something went wrong! \n Check internet connection</string>
+    <string name="text_some_thing_went_wrong">Something went wrong!</string>
+    <string name="media_picker_select_from">Select From:</string>
+    <string name="media_picker_camera">Camera</string>
+    <string name="close_video_photo_pop_up">Close PopUp</string>
+    <string name="media_picker_gallery">Gallery</string>
+    <string name="media_picker_some_permission_is_denied">Some Permission is Denied</string>
+    <string name="media_picker_ok">OK</string>
+    <string name="sec_string">%d sec</string>
+    <string name="media_picker_you_need_to_grant_access_to">You need to grant access to</string>
+    <string name="media_picker_read_Write_external_storage"><![CDATA[Read & Write External Storage]]></string>
+    <string name="media_picker_cancel">Cancel</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
