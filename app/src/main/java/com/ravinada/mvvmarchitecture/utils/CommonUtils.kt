@@ -1,8 +1,11 @@
 package com.ravinada.mvvmarchitecture.utils
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Context
 import android.net.ConnectivityManager
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
@@ -68,5 +71,22 @@ object CommonUtils {
 
     fun getListFragment(fragmentManager: FragmentManager): List<Fragment> {
         return fragmentManager.fragments
+    }
+
+    fun hideKeyboard(act: Activity?) {
+        act?.let {
+            it.currentFocus?.run {
+                val inputMethodManager =
+                    it.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(this.windowToken, 0)
+            }
+        }
+    }
+
+    fun hideKeypad(context: Context?, view: View?) {
+        if (context != null && view != null) {
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 }
