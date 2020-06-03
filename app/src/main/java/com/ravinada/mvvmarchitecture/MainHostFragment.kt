@@ -31,7 +31,7 @@ class BlankFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_blank4, container, false)
+        return inflater.inflate(R.layout.activity_main, container, false)
     }
 
     companion object {
